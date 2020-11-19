@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<th:block th:insert="fragments/base::header"></th:block>
+</head>
+<body id="page-top">
+	<div id="wrapper">
+		<th:block th:insert="fragments/sidebar::sidebar"></th:block>
+		<div id="content-wrapper" class="d-flex align-items-center">
+			<div id="content">
+				<div class="container-fluid">
+					<div class="text-center">
+		
+					<form th:action="@{/in}" th:object="${user}" method="post" novalidate>
+						<button class="btn btn-primary btn-user">出勤</button>
+					</form>
+					<small th:text="${in}"></small>
+					
+					<BR>
+					
+					<form th:action="@{/out}" th:object="${user}" method="post" novalidate>
+						<button class="btn btn-primary btn-user">退勤</button>
+					</form>
+					<small th:text="${out}"></small>	
+					
+					<!-- 本当はDB登録して出退勤時刻を管理したかったけど、そこまで手が回らず -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<th:block th:insert="fragments/base::scripts"></th:block>
+</body>
+</html>
